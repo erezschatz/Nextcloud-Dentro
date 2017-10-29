@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+    <id>dentro</id>
+    <name>Dentro</name>
+    <summary>Outliner for Nextcloud</summary>
+    <description><![CDATA[Outliner for Nextcloud]]></description>
+    <licence>agpl</licence>
+    <author mail="erez.schatz@gmail.com" homepage="https://github.com/erezschatz/Nextcloud-Dentro">Erez Schatz</author>
+    <version>0.0.1</version>
+    <namespace>Dentro</namespace>
+    <category>tools</category>
+    <bugs>https://github.com/erezschatz/Nextcloud-Dentro/issues</bugs>
+    <dependencies>
+        <nextcloud min-version="12" max-version="12"/>
+    </dependencies>
+    <navigations>
+        <navigation>
+            <name>Dentro</name>
+            <route>dentro.page.index</route>
+        </navigation>
+    </navigations>
+</info>
