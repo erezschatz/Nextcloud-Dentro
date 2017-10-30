@@ -1,4 +1,8 @@
 <?php
+script('dentro', 'jquery-3.2.1');
+script('dentro', 'bootstrap.min');
+script('dentro', 'concord');
+script('dentro', '"concordUtils');
 script('dentro', 'script');
 style('dentro', 'style');
 ?>
@@ -15,4 +19,3 @@ style('dentro', 'style');
 		</div>
 	</div>
 </div>
-
