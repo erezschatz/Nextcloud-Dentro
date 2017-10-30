@@ -15,22 +15,6 @@ const appPrefs = {
 let whenLastKeystroke = new Date();
 let cmdKeyPrefix = "Ctrl+";
 
-const initLocalStorage = () => {
-	if (localStorage.savedOpmltext === undefined) {
-		localStorage.savedOpmltext = initialOpmltext;
-		editSource(urlConcordDocs); //9/14/13 by DW
-	}
-	if (localStorage.ctOpmlSaves === undefined) {
-		localStorage.ctOpmlSaves = 0;
-	}
-	if (localStorage.whenLastSave === undefined) {
-		localStorage.whenLastSave = new Date().toString();
-	}
-	if (localStorage.flTextMode === undefined) {
-		localStorage.flTextMode = "true";
-	}
-};
-
 const opInsertCallback = headline => {
 	headline.attributes.setOne ("created", new Date().toUTCString());
 };
@@ -69,13 +53,6 @@ const setOutlinerPrefs = (id, flRenderMode, flReadonly) => {
 };
 
 const saveOutlineNow = () => {
-	localStorage.savedOpmltext = opOutlineToXml(appPrefs.authorName, appPrefs.authorEmail);
-	localStorage.ctOpmlSaves++;
-	
-	// const request = new XMLHttpRequest();
-	// request.open('POST', 'erezschatz.net:5000', true);
-	// request.send(opOutlineToXml("Erez Schatz", "erez.schatz@gmail.com", "erez"));
-	
 	opClearChanged();
 };
 
@@ -100,21 +77,9 @@ const saveAsOpml = () => {
 }
 
 $(document).ready(function() {
-	initLocalStorage();
-	//document.querySelector("#idMenuProductName").textContent = appConsts.productname;
-
-	//init menu keystrokes
-		if (navigator.platform.toLowerCase().substr (0, 3) == "mac") {
-			cmdKeyPrefix = "&#8984;";
-		}
-		document.querySelectorAll("#idMenubar .dropdown-menu li").forEach(() => {
-			const li = document.querySelector(this);
-			li.innerHTML = li.innerHTML.replace("Cmd-", cmdKeyPrefix);
-	});
-
 	setOutlinerPrefs("#outliner", true, false); //9/20/13 by DW -- change initial value for renderMode from false to true
 	opSetFont(appPrefs.outlineFont, appPrefs.outlineFontSize, appPrefs.outlineLineHeight);
-	opXmlToOutline(localStorage.savedOpmltext);
+	opXmlToOutline(initialOpmltext);
 	self.setInterval(() => backgroundProcess(), 1000); //call every second
 });
 
