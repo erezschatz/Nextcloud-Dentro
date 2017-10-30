@@ -99,7 +99,7 @@ const saveAsOpml = () => {
 	saveAs(blob, "dentro.opml");
 }
 
-(function startup () {
+$(document).ready(function() {
 	initLocalStorage();
 	//document.querySelector("#idMenuProductName").textContent = appConsts.productname;
 
@@ -116,7 +116,7 @@ const saveAsOpml = () => {
 	opSetFont(appPrefs.outlineFont, appPrefs.outlineFontSize, appPrefs.outlineLineHeight);
 	opXmlToOutline(localStorage.savedOpmltext);
 	self.setInterval(() => backgroundProcess(), 1000); //call every second
-})();
+});
 
 const handleFileSelect = evt => {
 	const f = evt.target.files[0];
