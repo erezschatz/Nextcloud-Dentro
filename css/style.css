@@ -1,14 +1,8 @@
-body {
-	background-color: whitesmoke;
-}
 .divOutlinerContainer { 
-	width: 75%;
 	margin-top: 75px;
 	margin-left: auto;
 	margin-right: auto;
-	border:1px solid gainsboro;
 	min-height: 550px;
-	max-height: 800px;
 	overflow: auto;
 	padding: 6px;
 	background-color: white;
@@ -71,4 +65,12 @@ input[type="file"] + label {
 	font-size: 24px;
 	font-weight: bold;
 	font-style: italic;
+}
+#outliner li [class^="icon-"], .nav li [class^="icon-"], li [class*=" icon-"], .nav li [class*=" icon-"] {
+	display: inline-block;
+	width: 1.25em;
+	text-align: center;
+}
+#outliner a [class^="icon-"], a [class*=" icon-"] {
+	display: inline-block;
 }
