@@ -27,5 +27,4 @@ class PageController extends Controller {
 	public function index() {
 		return new TemplateResponse('dentro', 'index');  // templates/index.php
 	}
-
 }

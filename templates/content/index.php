@@ -1,1 +1,4 @@
-<h1>Hello world</h1>
+		<div class="divOutlinerContainer">
+			<div id="outliner">
+			</div>
+		</div>
