@@ -101,7 +101,7 @@ const saveAsOpml = () => {
 
 (function startup () {
 	initLocalStorage();
-	document.querySelector("#idMenuProductName").textContent = appConsts.productname;
+	//document.querySelector("#idMenuProductName").textContent = appConsts.productname;
 
 	//init menu keystrokes
 		if (navigator.platform.toLowerCase().substr (0, 3) == "mac") {
