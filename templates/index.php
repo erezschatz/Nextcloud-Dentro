@@ -6,6 +6,7 @@ script('dentro', 'concordUtils');
 script('dentro', 'script');
 
 style('dentro', 'style');
+style('dentro', 'vendor/font-awesome/font-awesome.min');
 ?>
 
 <div id="app">
