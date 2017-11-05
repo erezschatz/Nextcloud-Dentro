@@ -5,10 +5,10 @@ use OCP\IRequest;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\Controller;
-use OCA\Dentro\Storage\AuthorStorage;
 
 class PageController extends Controller {
 	private $userId;
+	private $authorStorage;
 
 	public function __construct($AppName, IRequest $request, $UserId){
 		parent::__construct($AppName, $request);
@@ -29,18 +29,7 @@ class PageController extends Controller {
 		return new TemplateResponse('dentro', 'index');  // templates/index.php
 	}
 	
-	/**
-	 * CAUTION: the @Stuff turns off security checks; for this page no admin is
-	 *          required and no CSRF check. If you don't know what CSRF is, read
-	 *          it up in the docs or you might create a security hole. This is
-	 *          basically the only required method to add this exemption, don't
-	 *          add it to any other method if you don't exactly know what it does
-	 *
-	 * @NoAdminRequired
-	 * @NoCSRFRequired
-	 */
     public function opml() {
-        $storage = new AuthorStorage();
-        return array(opml => $storage->getContent());
+        return array(opml => $authorStorage->getContent());
 	}
 }
