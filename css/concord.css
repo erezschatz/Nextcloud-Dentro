@@ -111,17 +111,13 @@
 .ui-loader-default {
 	display: none;
 	}
-.icon-wordpress {
-	min-width: 20px;
-	background: url('http://static.smallpicture.com/concord-assets/wordpress128.png') no-repeat;
-	background-size: 100% auto;
-	}
 /** FONT AWESOME STYLES **/
-	li [class^="icon-"], .nav li [class^="icon-"], li [class*=" icon-"], .nav li [class*=" icon-"] {
-		display: inline-block;
-		width: 1.25em;
-		text-align: center;
-		}
-	a [class^="icon-"], a [class*=" icon-"] {
-		display: inline-block;
-		}
+#outliner li [class^="icon-"], .nav li [class^="icon-"], li [class*=" icon-"], .nav li [class*=" icon-"] {
+	display: inline-block;
+	width: 1.25em;
+	text-align: center;
+}
+#outliner a [class^="icon-"], a [class*=" icon-"] {
+	display: inline-block;
+}
+
