@@ -5,6 +5,7 @@ use OCP\IRequest;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\Controller;
+use OCA\Dentro\Storage\AuthorStorage;
 
 class PageController extends Controller {
 	private $userId;
@@ -29,6 +30,7 @@ class PageController extends Controller {
 	}
 	
     public function getOpml() {
-		return new TemplateResponse('dentro', 'opml');  // templates/opml.php
+        $storage = new AuthorStorage();
+        return array(opml => $storage->getContent());
 	}
 }

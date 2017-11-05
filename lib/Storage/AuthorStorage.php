@@ -9,7 +9,7 @@ class AuthorStorage {
         $this->storage = $storage;
     }
 
-    public function getContent($id) {
+    public function getContent() {
         // check if file exists and read from it if possible
         try {
             $file = $this->storage->get('/dentro.opml');
