@@ -1,4 +1,4 @@
-		<nav class="navbar navbar-default navbar-fixed-top" data-dropdown="dropdown">
+		<!--nav class="navbar navbar-default navbar-fixed-top" data-dropdown="dropdown">
 			<div class="container">
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav" id="idMainMenuList">
@@ -41,7 +41,7 @@
 					</li>
 				</ul>
 			</div>
-		</nav>
+		</nav-->
 		<div class="divOutlinerContainer">
 			<div id="outliner">
 			</div>
