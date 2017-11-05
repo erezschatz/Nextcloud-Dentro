@@ -85,6 +85,7 @@ $(document).ready(function() {
 	//9/20/13 by DW -- change initial value for renderMode from false to true
 	setOutlinerPrefs("#outliner", true, false);
 	opSetFont(appPrefs.outlineFont, appPrefs.outlineFontSize, appPrefs.outlineLineHeight);
+	getOpml();
 	self.setInterval(() => backgroundProcess(), 1000); //call every second
 });
 
