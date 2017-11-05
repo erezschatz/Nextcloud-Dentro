@@ -86,7 +86,7 @@ $(document).ready(function() {
 
 const getOpml = () => {
     $.ajax({
-        url: 'index#opml',
+        url: 'opml',
         
     }).done(function(data) {
         console.log(data);
