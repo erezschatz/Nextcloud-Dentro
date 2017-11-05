@@ -77,11 +77,22 @@ const saveAsOpml = () => {
 }
 
 $(document).ready(function() {
-	setOutlinerPrefs("#outliner", true, false); //9/20/13 by DW -- change initial value for renderMode from false to true
+	//9/20/13 by DW -- change initial value for renderMode from false to true
+	setOutlinerPrefs("#outliner", true, false);
 	opSetFont(appPrefs.outlineFont, appPrefs.outlineFontSize, appPrefs.outlineLineHeight);
-	opXmlToOutline(initialOpmltext);
+	opXmlToOutline(getOpml);
 	self.setInterval(() => backgroundProcess(), 1000); //call every second
 });
+
+const getOpml = () => {
+    $.ajax({
+        url: 'index#opml',
+        
+    }).done(function(data) {
+        console.log(data);
+        return data;
+    })
+}
 
 const handleFileSelect = evt => {
 	const f = evt.target.files[0];

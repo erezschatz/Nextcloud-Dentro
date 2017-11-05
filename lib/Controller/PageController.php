@@ -27,4 +27,8 @@ class PageController extends Controller {
 	public function index() {
 		return new TemplateResponse('dentro', 'index');  // templates/index.php
 	}
+	
+    public function getOpml() {
+		return new TemplateResponse('dentro', 'opml');  // templates/opml.php
+	}
 }
