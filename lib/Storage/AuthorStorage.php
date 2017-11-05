@@ -16,10 +16,10 @@ class AuthorStorage {
             if($file instanceof \OCP\Files\File) {
                 return $file->getContent();
             } else {
-                throw new StorageException('Can not read from folder');
+                return 'Can not read from folder';
             }
         } catch(\OCP\Files\NotFoundException $e) {
-            throw new StorageException('File does not exist');
+            return 'File does not exist';
         }
     }
 }
