@@ -24,8 +24,7 @@ const appTypeIcons = {
 	"metaWeblogPost": "file-text-alt"
 };
 
-const initialOpmltext =
-	'<?xml version="1.0" encoding="ISO-8859-1"?><opml version="2.0"><head><title>Untitled</title></head><body><outline text="Foo"/></body></opml>';
+const initialOpmltext = $('#opml').val();
 
 const defaultUtilsOutliner = "#outliner";
 
