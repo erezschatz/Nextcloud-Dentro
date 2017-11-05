@@ -29,7 +29,7 @@ class PageController extends Controller {
 		return new TemplateResponse('dentro', 'index');  // templates/index.php
 	}
 	
-    public function getOpml() {
+    public function opml() {
         $storage = new AuthorStorage();
         return array(opml => $storage->getContent());
 	}
