@@ -5,6 +5,7 @@ use OCP\IRequest;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\Controller;
+use \OCA\Dentro\AppInfo\Application;
 
 class PageController extends Controller {
 	private $userId;
@@ -39,6 +40,8 @@ class PageController extends Controller {
 	 * @NoCSRFRequired
 	 */
     public function opml($storage) {
-        return array(opml => $storage->getContent());
+        $app = new Application();
+        $container = $app->getContainer();
+        return array(opml => $container->query('AuthorStorage')->getContent());
 	}
 }
