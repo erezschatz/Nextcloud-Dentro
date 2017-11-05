@@ -42,6 +42,6 @@ class PageController extends Controller {
     public function opml($storage) {
         $app = new Application();
         $container = $app->getContainer();
-        return array(opml => $container->query('AuthorStorage')->getContent());
+        return array("opml" => $container->query('AuthorStorage')->getContent());
 	}
 }

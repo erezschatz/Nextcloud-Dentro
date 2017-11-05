@@ -17,11 +17,11 @@ class Application extends App {
          * Storage Layer
          */
         $container->registerService('AuthorStorage', function($c) {
-            return new AuthorStorage($c->query('RootStorage'));
+            return new AuthorStorage($c->query('UserStorage'));
         });
 
-        $container->registerService('RootStorage', function($c) {
-            return $c->query('ServerContainer')->getRootFolder();
+        $container->registerService('UserStorage', function($c) {
+            return $c->query('ServerContainer')->getUserFolder();
         });
     }
 }

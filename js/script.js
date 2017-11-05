@@ -14,6 +14,7 @@ const appPrefs = {
 
 let whenLastKeystroke = new Date();
 let cmdKeyPrefix = "Ctrl+";
+let initialOpmltext;
 
 const opInsertCallback = headline => {
 	headline.attributes.setOne ("created", new Date().toUTCString());
@@ -64,6 +65,10 @@ const attachUrl = () => {
 };
 
 const backgroundProcess = () => {
+    if (initialOpmltext) {
+        opXmlToOutline(initialOpmltext);
+        initialOpmltext = undefined;
+    }
 	if (opHasChanged() && secondsSince(whenLastKeystroke) >= 1) {
 		saveOutlineNow();
 	}
@@ -80,17 +85,14 @@ $(document).ready(function() {
 	//9/20/13 by DW -- change initial value for renderMode from false to true
 	setOutlinerPrefs("#outliner", true, false);
 	opSetFont(appPrefs.outlineFont, appPrefs.outlineFontSize, appPrefs.outlineLineHeight);
-	opXmlToOutline(getOpml);
 	self.setInterval(() => backgroundProcess(), 1000); //call every second
 });
 
 const getOpml = () => {
     $.ajax({
         url: 'opml',
-        
     }).done(function(data) {
-        console.log(data);
-        return data;
+        initialOpmltext = data.opml;
     })
 }
 
