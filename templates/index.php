@@ -6,7 +6,7 @@ script('dentro', 'concordUtils');
 script('dentro', 'script');
 
 style('dentro', 'bootstrap');
-style('dentro', 'font-awesome/font-awesome.min');
+style('dentro', 'font-awesome/font-awesome');
 style('dentro', 'concord');
 style('dentro', 'style');
 ?>
