@@ -33,7 +33,7 @@ class PageController extends Controller {
 	 * @NoAdminRequired
 	 * @NoCSRFRequired
 	 */
-    public function getOpml($storage) {
+    public function getOpml() {
         $app = new Application();
         $container = $app->getContainer();
         return array("opml" => $container->query('AuthorStorage')->getContent());
@@ -44,9 +44,9 @@ class PageController extends Controller {
 	 * @NoAdminRequired
 	 * @NoCSRFRequired
 	 */
-    public function storeOpml($storage) {
+    public function storeOpml($content) {
         $app = new Application();
         $container = $app->getContainer();
-        return array("status" => $container->query('AuthorStorage')->writeContent());
+        return array("status" => $content); #$container->query('AuthorStorage')->writeContent());
 	}
 }
