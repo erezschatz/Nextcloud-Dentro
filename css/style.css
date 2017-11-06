@@ -1,4 +1,4 @@
-.divOutlinerContainer { 
+.divOutlinerContainer {
 	margin-top: 75px;
 	margin-left: auto;
 	margin-right: auto;
@@ -13,7 +13,7 @@
 	margin-left: auto;
 	margin-right: auto;
 }
-.divMenubar .container { 
+.divMenubar .container {
 	margin-left: auto;
 	margin-right: auto;
 	width: 940px;
@@ -38,14 +38,14 @@ input[type="file"] + label {
 .dropdown-menu > li > a {
 	cursor: pointer;
 }
-.navbar-inner { 
+.navbar-inner {
 	-moz-border-radius: 0;
-	-moz-border-radius: none; 
-	-moz-box-shadow: none; 
-	background-image: none; 
-	border-radius: 0;  
+	-moz-border-radius: none;
+	-moz-box-shadow: none;
+	background-image: none;
+	border-radius: 0;
 }
-.divMenubar .brand { 
+.divMenubar .brand {
 	margin-top: 0;
 }
 .divMenubar .nav li {

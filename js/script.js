@@ -57,8 +57,8 @@ const saveOutlineNow = () => {
     $.ajax({
         url: 'opml',
         method: 'POST',
-        data: opOutlineToXml(appPrefs.authorName, appPrefs.authorEmail)
-    }).done(function(data) {
+        data: { 'content': opOutlineToXml(appPrefs.authorName, appPrefs.authorEmail) }
+    }).done(function() {
         opClearChanged();
 	});
 };
@@ -80,13 +80,6 @@ const backgroundProcess = () => {
 	}
 };
 
-const saveAsOpml = () => {
-	const content = opOutlineToXml("Erez Schatz", "erez.schatz@gmail.com", "erez");
-	const contentType = 'text/x-opml+xml';
-	const blob = new Blob([content], {'type':contentType});
-	saveAs(blob, "dentro.opml");
-}
-
 $(document).ready(function() {
 	//9/20/13 by DW -- change initial value for renderMode from false to true
 	setOutlinerPrefs("#outliner", true, false);
@@ -101,18 +94,5 @@ const getOpml = () => {
         method: 'GET'
     }).done(function(data) {
         initialOpmltext = data.opml;
-    })
-}
-
-const handleFileSelect = evt => {
-	const f = evt.target.files[0];
-	if (!f || !f.name.match(/\.opml$/)) return;
-
-	const reader = new FileReader();
-
-	reader.onload = (e => {
-		opXmlToOutline(e.target.result);
-	});
-
-	reader.readAsText(f);
+    });
 };

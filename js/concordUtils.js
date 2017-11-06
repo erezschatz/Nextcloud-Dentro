@@ -249,8 +249,9 @@ const opWipe = () => {
 };
 
 const opToggleRenderMode = () => {
-	return $(defaultUtilsOutliner).concord().op.setRenderMode(!$(defaultUtilsOutliner).concord().op.getRenderMode());
-}
+	return $(defaultUtilsOutliner).concord().op.setRenderMode(
+	   !$(defaultUtilsOutliner).concord().op.getRenderMode());
+};
 
 //string routines
 const filledString = (s, ct) => {

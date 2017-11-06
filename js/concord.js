@@ -21,8 +21,8 @@ $(function () {
 if (!Array.prototype.indexOf) {
     Array.prototype.indexOf = (obj, start) => {
         for (let i = (start || 0), j = this.length; i < j; i++) {
-            if (this[i] === obj) { 
-                return i; 
+            if (this[i] === obj) {
+                return i;
             }
         }
         return -1;
@@ -154,7 +154,7 @@ function ConcordOutline(container, options) {
     this.op = null;
     this.script = null;
     this.pasteBin = null;
-    
+
     this.pasteBinFocus = () => {
         if (!concord.ready) {
             return;
@@ -253,12 +253,12 @@ function ConcordOutline(container, options) {
             }
 
             css += '}\n';
-            
+
             let wrapperPaddingLeft = prefs.outlineLineHeight;
             if (wrapperPaddingLeft === undefined) {
                 wrapperPaddingLeft = prefs.outlineFontSize;
             }
-            
+
             if (wrapperPaddingLeft !== undefined) {
                 css += cssId + ' .concord .concord-node .concord-wrapper {';
                 css += "padding-left: " + wrapperPaddingLeft + "px";
@@ -307,12 +307,12 @@ function ConcordOutline(container, options) {
             this.afterInit();
             return;
         }
-        
+
         const root = $("<ol></ol>");
         root.addClass("concord concord-root");
         root.appendTo(container);
         this.root = root;
-        
+
         const pasteBin = $('<div class="pasteBin" contenteditable="true" style="position: absolute; height: 1px; width:1px; outline:none; overflow:hidden;"></div>');
         pasteBin.appendTo(container);
         this.pasteBin = pasteBin;
@@ -339,11 +339,11 @@ function ConcordEditor(root, concordInstance) {
     this.makeNode = () => {
         const node = $("<li></li>");
         node.addClass("concord-node");
-        
+
         const wrapper = $("<div class='concord-wrapper'></div>");
         wrapper.append('<i class="node-icon icon-caret-right"></i>');
         wrapper.addClass("type-icon");
-        
+
         const text = $("<div class='concord-text' contenteditable='true'></div>");
         const outline = $("<ol></ol>");
         text.appendTo(wrapper);
@@ -365,7 +365,7 @@ function ConcordEditor(root, concordInstance) {
             root.data("changeTextMode", false);
             root.data("changeRange", undefined);
         }
-        
+
         root.find(".draggable").removeClass("draggable");
         root.find(".drop-sibling").removeClass("drop-sibling");
         root.find(".drop-child").removeClass("drop-child");
@@ -380,15 +380,15 @@ function ConcordEditor(root, concordInstance) {
             text.html("");
         }
         text.focus();
-        
+
         const el = text.get(0);
         if (el && el.childNodes && el.childNodes[0]) {
-            if (typeof window.getSelection != "undefined" && 
+            if (typeof window.getSelection != "undefined" &&
                 typeof document.createRange != "undefined") {
                 const range = document.createRange();
                 range.selectNodeContents(el);
                 range.collapse(false);
-                
+
                 const sel = window.getSelection();
                 sel.removeAllRanges();
                 sel.addRange(range);
@@ -412,7 +412,7 @@ function ConcordEditor(root, concordInstance) {
             target = target.parents(".concord-text:first");
         }
         if (target.length == 1) {
-            return target.hasClass("concord-text") && 
+            return target.hasClass("concord-text") &&
                         target.hasClass("editing");
         }
         return false;
@@ -434,7 +434,7 @@ function ConcordEditor(root, concordInstance) {
         if (_root) {
             root = _root;
         }
-        
+
         let title = root.data("title");
         if (!title) {
             if (root.hasClass("concord-node")) {
@@ -479,12 +479,12 @@ function ConcordEditor(root, concordInstance) {
         let text = this.unescape(
             node.children(".concord-wrapper:first").
                 children(".concord-text:first").html());
-                
+
         let textMatches = text.match(/^(.+)<br>\s*$/);
         if (textMatches) {
             text = textMatches[1];
         }
-        
+
         let opml = '\t'.repeat(indent);
 
         let subheads;
@@ -535,7 +535,7 @@ function ConcordEditor(root, concordInstance) {
             node.children(".concord-wrapper:first").
                  children(".concord-text:first").html());
         text += "\n";
-        
+
         const editor = this;
         node.children("ol").children(".concord-node").each(function() {
             text += editor.textLine($(this), indent + 1);
@@ -581,12 +581,12 @@ function ConcordEditor(root, concordInstance) {
                     }
                 }
             }
-            
+
             let text = node.children(".concord-wrapper:first").children(".concord-text:first");
             if (text.hasClass("editing")) {
                 text.removeClass("editing");
             }
-            
+
             node.addClass("selected");
             /* if (text.text().length > 0) {
                 //root.data("currentChange", root.children().clone());
@@ -602,7 +602,7 @@ function ConcordEditor(root, concordInstance) {
         if (multiple === undefined) {
             multiple = false;
         }
-        
+
         /* let node = root.find(".concord-cursor");
         if (node.length == 1) {
             let text = node.children(".concord-wrapper:first").children(".concord-text:first");
@@ -610,7 +610,7 @@ function ConcordEditor(root, concordInstance) {
                 //text.blur();
             }
         } */
-        
+
         if (!multiple) {
             root.find(".selected").removeClass("selected");
         }
@@ -642,9 +642,9 @@ function ConcordEditor(root, concordInstance) {
 
         let iconName = "caret-right";
         if (nodeIcon) {
-            if (nodeIcon == node.attr("opml-type") && 
-                concordInstance.prefs() && 
-                concordInstance.prefs().typeIcons && 
+            if (nodeIcon == node.attr("opml-type") &&
+                concordInstance.prefs() &&
+                concordInstance.prefs().typeIcons &&
                 concordInstance.prefs().typeIcons[nodeIcon]) {
                 iconName = concordInstance.prefs().typeIcons[nodeIcon];
             } else if (nodeIcon == attributes.icon) {
@@ -675,7 +675,7 @@ function ConcordEditor(root, concordInstance) {
         outline.children("outline").each(function() {
             editor.build($(this), collapsed, level + 1).appendTo(children);
         });
-        
+
         if (collapsed) {
             if (outline.children("outline").length > 0) {
                 node.addClass("collapsed");
@@ -698,7 +698,7 @@ function ConcordEditor(root, concordInstance) {
     this.showContextMenu = (x, y) => {
         if (concordInstance.prefs().contextMenu) {
             this.hideContextMenu();
-            root.data("dropdown", 
+            root.data("dropdown",
                 $(concordInstance.prefs().contextMenu).clone().appendTo(concordInstance.container));
 
             const editor = this;
@@ -707,12 +707,12 @@ function ConcordEditor(root, concordInstance) {
             });
 
             root.data("dropdown").css({
-                "position" : "absolute", 
-                "top" : y + "px", 
-                "left" : x + "px", 
+                "position" : "absolute",
+                "top" : y + "px",
+                "left" : x + "px",
                 "cursor" : "default"
             });
-            
+
             root.data("dropdown").show();
         }
     };
@@ -723,12 +723,12 @@ function ConcordEditor(root, concordInstance) {
             if (concordInstance.pasteBin.text() == "...") {
                 return;
             }
-            
+
             let h = concordInstance.pasteBin.html().replace(
                 new RegExp("<(div|p|blockquote|pre|li|br|dd|dt|code|h\\d)[^>]*(/)?>","gi"),"\n"
             );
             h = $("<div/>").html(h).text();
-            
+
             let clipboardMatch = false;
             if (concordClipboard !== undefined) {
                 let trimmedClipboardText = concordClipboard.text.replace(/^[\s\r\n]+|[\s\r\n]+$/g,'');
@@ -754,7 +754,7 @@ function ConcordEditor(root, concordInstance) {
                     }
                 }
             }
-            
+
             if (!clipboardMatch) {
                 concordClipboard = undefined;
                 let numberoflines = 0;
@@ -795,11 +795,11 @@ function ConcordEditor(root, concordInstance) {
 
     this.escape = function(s) {
         let h = $("<div/>").text(s).html().replace(/\u00A0/g, " ");
-        
-        if (concordInstance.op.getRenderMode()) { 
+
+        if (concordInstance.op.getRenderMode()) {
         // Render HTML if op.getRenderMode() returns true - 2/17/13 by KS
             let allowedTags = ["b","strong","i","em","a","img","strike","del","p","u"];
-            
+
             for (let tagIndex in allowedTags) {
                 let tag = allowedTags[tagIndex];
                 if (tag == "img") {
@@ -810,7 +810,7 @@ function ConcordEditor(root, concordInstance) {
                 } else if (tag == "a") {
                     h = h.replace(
                         new RegExp(
-                            "&lt;" + tag + "((?!&gt;).*?)&gt;((?!&lt;/" + 
+                            "&lt;" + tag + "((?!&gt;).*?)&gt;((?!&lt;/" +
                                     tag + "&gt;).+?)&lt;/" + tag + "&gt;","gi"),
                         "<"+tag+"$1"+">$2"+"<"+"/"+tag+">");
                 } else {
@@ -1142,7 +1142,7 @@ function ConcordEvents(root, editor, op, concordInstance) {
         root.find(".selected").each(function() {
             copyText += concordInstance.editor.textLine($(this));
         });
-        
+
         if (copyText != "" && copyText != "\n") {
             concordClipboard = {text: copyText, data: root.find(".selected").clone(true, true)};
 
@@ -1400,11 +1400,11 @@ function ConcordOp(root, concordInstance, _cursor) {
     this.bold = () => {
         this.formatText("bold");
     };
-    
+
     this.strikeThrough = () => {
         this.formatText("strikeThrough");
     };
-    
+
     this.italic = () => {
         this.formatText("italic");
     };
@@ -1427,7 +1427,7 @@ function ConcordOp(root, concordInstance, _cursor) {
             }
         this.markChanged();
     };
-    
+
     this.changed = () => {
         return root.data("changed");
     };
@@ -1663,7 +1663,7 @@ function ConcordOp(root, concordInstance, _cursor) {
         headers.title = this.getTitle();
         return headers;
     };
-    
+
     this.getLineText = () => {
         const node = this.getCursor();
         if (node.length == 1) {
@@ -1885,8 +1885,8 @@ function ConcordOp(root, concordInstance, _cursor) {
             }
         }
         if (lines.length > (firstlinewithcontent + 2)) {
-            if (lines[firstlinewithcontent].match(/^([\t\s]*)\-.*$/) == null && 
-                lines[firstlinewithcontent].match(/^.+$/) && 
+            if (lines[firstlinewithcontent].match(/^([\t\s]*)\-.*$/) == null &&
+                lines[firstlinewithcontent].match(/^.+$/) &&
                 lines[firstlinewithcontent+1] == "") {
                 startingline = firstlinewithcontent + 2;
                 let workflowyParent = concordInstance.editor.makeNode();
@@ -1926,7 +1926,7 @@ function ConcordOp(root, concordInstance, _cursor) {
                     } else {
                         level = matches[1].length + startinglevel;
                     }
-                    
+
                     if (level > lastLevel) {
                         parents[lastLevel] = lastNode;
                         parent = lastNode;
@@ -1965,7 +1965,7 @@ function ConcordOp(root, concordInstance, _cursor) {
             concordInstance.editor.recalculateLevels();
         }
     };
-    
+
     this.insertXml = (opmltext, dir) => {
         this.saveState();
 
@@ -2287,7 +2287,7 @@ function ConcordOp(root, concordInstance, _cursor) {
         root.data("head", headers);
         this.markChanged();
     };
-    
+
     this.setLineText = text => {
         this.saveState();
         let node = this.getCursor();
@@ -2346,7 +2346,7 @@ function ConcordOp(root, concordInstance, _cursor) {
         root.data("title", title);
         return true;
     };
-    
+
     this.subsExpanded = () => {
         let node = this.getCursor();
         if (node.length == 1) {
@@ -2421,8 +2421,8 @@ function ConcordOp(root, concordInstance, _cursor) {
 
         for (let headName in head) {
             if (head[headName] !== undefined) {
-                add('<' + headName + '>' + 
-                    ConcordUtil.escapeXml(head[headName]) + 
+                add('<' + headName + '>' +
+                    ConcordUtil.escapeXml(head[headName]) +
                     '</' + headName + '>');
             }
         }
@@ -2518,7 +2518,7 @@ function ConcordOp(root, concordInstance, _cursor) {
         this.markChanged();
     };
 
-    this.xmlToOutline = (xmlText, flSetFocus) => { 
+    this.xmlToOutline = (xmlText, flSetFocus) => {
         //2/22/14 by DW -- new param, flSetFocus
         if (flSetFocus === undefined) { //2/22/14 by DW
             flSetFocus = true;
@@ -2598,7 +2598,7 @@ function ConcordOpAttributes(concordInstance, cursor) {
                 }
             }
         }
-        
+
         for (let j in newCssClasses) {
             let newClass = newCssClasses[j];
             concordText.addClass(newClass);
@@ -2620,14 +2620,14 @@ function ConcordOpAttributes(concordInstance, cursor) {
 
         for (let name in attributes) {
             finalAttributes[name] = attributes[name];
-            
+
             if (name == iconAttribute) {
                 let value = attributes[name];
                 let wrapper = cursor.children(".concord-wrapper");
                 let iconName = null;
 
-                if (name == "type" && concordInstance.prefs() && 
-                    concordInstance.prefs().typeIcons && 
+                if (name == "type" && concordInstance.prefs() &&
+                    concordInstance.prefs().typeIcons &&
                     concordInstance.prefs().typeIcons[value]) {
                     iconName = concordInstance.prefs().typeIcons[value];
                 } else if (name == "icon") {
@@ -2675,14 +2675,14 @@ function ConcordOpAttributes(concordInstance, cursor) {
                 let value = attributes[name];
                 let wrapper = cursor.children(".concord-wrapper");
                 let iconName = null;
-                if (name == "type" && concordInstance.prefs() && 
-                    concordInstance.prefs().typeIcons && 
+                if (name == "type" && concordInstance.prefs() &&
+                    concordInstance.prefs().typeIcons &&
                     concordInstance.prefs().typeIcons[value]) {
                     iconName = concordInstance.prefs().typeIcons[value];
                 } else if (name == "icon") {
                     iconName = value;
                 }
-                
+
                 if (iconName) {
                     let icon = "<i"+" class=\"node-icon icon-"+ iconName +"\"><"+"/i>";
                     wrapper.children(".node-icon:first").replaceWith(icon);
@@ -2736,8 +2736,8 @@ function ConcordOpAttributes(concordInstance, cursor) {
             let wrapper = cursor.children(".concord-wrapper");
             let iconName = null;
 
-            if (name == "type" && concordInstance.prefs() && 
-                    concordInstance.prefs().typeIcons && 
+            if (name == "type" && concordInstance.prefs() &&
+                    concordInstance.prefs().typeIcons &&
                     concordInstance.prefs().typeIcons[value]) {
                 iconName = concordInstance.prefs().typeIcons[value];
             } else if (name == "icon") {
@@ -2775,7 +2775,7 @@ function ConcordScript(root, concordInstance) {
         if (concordInstance.op.attributes.getOne("isComment") !== undefined) {
             return concordInstance.op.attributes.getOne("isComment") == "true";
         }
-        
+
         let parentIsAComment = false;
         concordInstance.op.getCursor().parents(".concord-node").each(function() {
             if (concordInstance.op.setCursorContext($(this)).attributes.getOne("isComment") == "true") {
@@ -2838,7 +2838,7 @@ function Op(opmltext) {
         }
         // Readonly exceptions for arrow keys and cmd-comma
         if (readonly) {
-            if (event.which >= 37 && event.which <= 40 || 
+            if (event.which >= 37 && event.which <= 40 ||
                 (event.metaKey || event.ctrlKey) && event.which == 188) {
                 readonly = false;
             }
@@ -2963,7 +2963,7 @@ function Op(opmltext) {
                         concordInstance.op.deleteSubs();
                         concordInstance.op.focusCursor();
                         concordInstance.fireCallback(
-                            "opInsert", 
+                            "opInsert",
                             concordInstance.op.setCursorContext(cursor)
                         );
                     } else {
@@ -2971,9 +2971,9 @@ function Op(opmltext) {
                         keyCaptured = true;
 
                         if(event.originalEvent && (
-                                event.originalEvent.keyLocation && 
+                                event.originalEvent.keyLocation &&
                                 event.originalEvent.keyLocation != 0 ||
-                                event.originalEvent.location && 
+                                event.originalEvent.location &&
                                 event.originalEvent.location !== 0)) {
                             concordInstance.op.setTextMode(!concordInstance.op.inTextMode());
                         } else {
@@ -3156,7 +3156,7 @@ function Op(opmltext) {
                     keyCaptured = false;
             }
             if (!keyCaptured) {
-                if (event.which >= 32 && (event.which < 112 || event.which > 123) && 
+                if (event.which >= 32 && (event.which < 112 || event.which > 123) &&
                     event.which < 1000 && !commandKey) {
                     let node = concordInstance.op.getCursor();
                     if (concordInstance.op.inTextMode()) {

@@ -5,7 +5,6 @@ use \OCP\AppFramework\App;
 
 use \OCA\Dentro\Storage\AuthorStorage;
 
-
 class Application extends App {
 
     public function __construct(array $urlParams=array()){

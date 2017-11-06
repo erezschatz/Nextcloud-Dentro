@@ -2,7 +2,7 @@
 			<div class="container">
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav" id="idMainMenuList">
-					<li class="dropdown" id="idOutlinerMenu"> 
+					<li class="dropdown" id="idOutlinerMenu">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Outliner&nbsp;<b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li class="divider"></li>
@@ -25,7 +25,7 @@
 							<li><a onclick="opDemote();"><span class="menuKeystroke">Cmd-]</span>Demote</a></li>
 						</ul>
 					</li>
-					<li class="dropdown" id="idEditMenu"> 
+					<li class="dropdown" id="idEditMenu">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Edit&nbsp;<b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a onclick="opBold;"><span class="menuKeystroke">Cmd-B</span>Toggle Bold</a></li>
