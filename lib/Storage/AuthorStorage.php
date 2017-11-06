@@ -30,11 +30,10 @@ class AuthorStorage {
             try {
                 $file = $this->storage->get('/dentro.opml');
             } catch(\OCP\Files\NotFoundException $e) {
-                return 'File not found;
+                return 'File not found';
             }
             $file->putContent($content);
             return true;
-
         } catch(\OCP\Files\NotPermittedException $e) {
             return 'Cant write to file';
         }
