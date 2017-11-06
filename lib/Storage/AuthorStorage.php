@@ -24,7 +24,7 @@ class AuthorStorage {
         return false;
     }
     
-    public function writeTxt($content) {
+    public function writeContent($content) {
         // check if file exists and write to it if possible
         try {
             try {
