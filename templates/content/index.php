@@ -27,8 +27,8 @@
 					<ul class="dropdown-menu">
 						<li><a href="#" id="bold"><span class="menuKeystroke">Cmd-B</span>Toggle Bold</a></li>
 						<li><a href="#" id="italics"><span class="menuKeystroke">Cmd-I</span>Toggle Italics</a></li>
-						<li><a href="#" id="strikeThrough"><span class="menuKeystroke">Cmd-U</span>Toggle Underline</a></li>
-						<li><a href="#" id="underscore"><span class="menuKeystroke">Cmd-U</span>Toggle Strikethrough</a></li>
+						<li><a href="#" id="underscore"><span class="menuKeystroke">Cmd-U</span>Toggle Underline</a></li>
+						<li><a href="#" id="strikeThrough"><span class="menuKeystroke">Cmd-U</span>Toggle Strikethrough</a></li>
 						
 						<li class="divider"></li>
 						<li><a href="#" id="toggleComment"><span class="menuKeystroke">Cmd-\</span>Toggle Comment</a></li>
