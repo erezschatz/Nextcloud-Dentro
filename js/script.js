@@ -86,6 +86,61 @@ $(document).ready(function() {
 	opSetFont(appPrefs.outlineFont, appPrefs.outlineFontSize, appPrefs.outlineLineHeight);
 	getOpml();
 	self.setInterval(() => backgroundProcess(), 1000); //call every second
+	
+	$('#toggleUrl').click(function() {
+	   attachUrl();
+	});
+	$('#toggleRenderMode').click(function() {
+	   opToggleRenderMode();
+	});
+	$('#toggleComment').click(function() {
+	   opToggleComment();
+	});
+	$('#underscore').click(function() {
+	   opUnderscore();
+	});
+	$('#strikeThrough').click(function() {
+	   opStrikeThrough();
+	});
+	$('#italics').click(function() {
+	   opItalics();
+	});
+	$('#bold').click(function() {
+	   opBold();
+	});
+	$('#demote').click(function() {
+	   opDemote();
+	});
+	$('#promote').click(function() {
+	   opPromote();
+	});
+	$('#moveRight').click(function() {
+	   opReorg(right, 1);
+	});
+	$('#moveLeft').click(function() {
+	   Reorg(left, 1);
+	});
+	$('#moveDown').click(function() {
+	   Reorg(down, 1);
+	});
+	$('#moveUp').click(function() {
+	   Reorg(up, 1);
+	});
+	$('#collapseAll').click(function() {
+	   opCollapseEverything();
+	});
+	$('#collapse').click(function() {
+	   opCollapse();
+	});
+	$('#expandAll').click(function() {
+	   opExpandEverything();
+	});
+	$('#expandAllSubs').click(function() {
+	   opExpandAllLevels();
+	});
+	$('#expand').click(function() {
+	   opExpand();
+	});
 });
 
 const getOpml = () => {

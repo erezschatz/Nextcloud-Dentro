@@ -1,6 +1,6 @@
 .divOutlinerContainer {
-	margin-top: 75px;
-	margin-left: auto;
+	margin-top: 35px;
+	margin-left: 15px;
 	margin-right: auto;
 	min-height: 550px;
 	overflow: auto;
@@ -60,9 +60,21 @@ input[type="file"] + label {
 .menuKeystroke:before {
 	content: "";
 }
- #idMenuProductName {
+#idMenuProductName {
 	font-family: "Arial";
 	font-size: 24px;
 	font-weight: bold;
 	font-style: italic;
+}
+#idMainMenuList .dropdown {
+    padding: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    width: 250px;
+}
+.dropdown-toggle {
+    color: #777;
+}
+.dropdown-toggle:hover {
+    color: #333;
 }
