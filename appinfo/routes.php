@@ -11,6 +11,7 @@ return [
     'routes' => [
 	   ['name' => 'page#index', 'url' => '/', 'verb' => 'GET'],
 	   ['name' => 'page#do_echo', 'url' => '/echo', 'verb' => 'POST'],
-	   ['name' => 'page#opml', 'url' => '/opml', 'verb' => 'GET'],
+	   ['name' => 'page#getOpml', 'url' => '/opml', 'verb' => 'GET'],
+	   ['name' => 'page#storeOpml', 'url' => '/opml', 'verb' => 'POST'],
     ]
 ];

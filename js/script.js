@@ -54,7 +54,14 @@ const setOutlinerPrefs = (id, flRenderMode, flReadonly) => {
 };
 
 const saveOutlineNow = () => {
-	opClearChanged();
+    $.ajax({
+        url: 'opml',
+        method: 'POST',
+        data: opOutlineToXml(appPrefs.authorName, appPrefs.authorEmail)
+    }).done(function(data) {
+        console.log(data);
+        opClearChanged();
+	});
 };
 
 const attachUrl = () => {
@@ -92,6 +99,7 @@ $(document).ready(function() {
 const getOpml = () => {
     $.ajax({
         url: 'opml',
+        method: 'GET'
     }).done(function(data) {
         initialOpmltext = data.opml;
     })

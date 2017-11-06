@@ -21,5 +21,23 @@ class AuthorStorage {
         } catch(\OCP\Files\NotFoundException $e) {
             return 'File does not exist';
         }
+        return false;
+    }
+    
+    public function writeTxt($content) {
+        // check if file exists and write to it if possible
+        try {
+            try {
+                $file = $this->storage->get('/dentro.opml');
+            } catch(\OCP\Files\NotFoundException $e) {
+                return 'File not found;
+            }
+            $file->putContent($content);
+            return true;
+
+        } catch(\OCP\Files\NotPermittedException $e) {
+            return 'Cant write to file';
+        }
+        return false;
     }
 }
