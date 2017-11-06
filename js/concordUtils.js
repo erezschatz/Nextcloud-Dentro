@@ -76,7 +76,7 @@ const opStrikeThrough = () => {
 };
 
 const opUnderscore = () => {
-	return $(defaultUtilsOutliner).concord().op.undescore();
+	return $(defaultUtilsOutliner).concord().op.underline();
 };
 
 const opLink = url => {

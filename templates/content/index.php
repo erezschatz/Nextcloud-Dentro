@@ -3,7 +3,6 @@
 				<li class="dropdown" id="idOutlinerMenu">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Outliner&nbsp;<b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li class="divider"></li>
 						<li><a href="#" id="expand"><span class="menuKeystroke">Cmd-,</span>Expand</a></li>
 						<li><a href="#" id="expandAllSubs">Expand All Subs</a></li>
 						<li><a href="#" id="expandAll">Expand Everything</a></li>
@@ -33,8 +32,7 @@
 						
 						<li class="divider"></li>
 						<li><a href="#" id="toggleComment"><span class="menuKeystroke">Cmd-\</span>Toggle Comment</a></li>
-						<li><a href="#" id="toggleRenderMode"><span class="menuKeystroke">Cmd-`</span>Toggle Render Mode</a></li>
-						<li><a href="#" id="toggleUrl">Toggle URL</a></li>
+						<li><a href="#" id="toggleUrl">Insert URL</a></li>
 					</ul>
 				</li>
 			</ul>

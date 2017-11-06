@@ -103,7 +103,7 @@ $(document).ready(function() {
 	   opStrikeThrough();
 	});
 	$('#italics').click(function() {
-	   opItalics();
+	   opItalic();
 	});
 	$('#bold').click(function() {
 	   opBold();
