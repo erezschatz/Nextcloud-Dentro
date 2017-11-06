@@ -59,7 +59,6 @@ const saveOutlineNow = () => {
         method: 'POST',
         data: opOutlineToXml(appPrefs.authorName, appPrefs.authorEmail)
     }).done(function(data) {
-        console.log(data);
         opClearChanged();
 	});
 };
