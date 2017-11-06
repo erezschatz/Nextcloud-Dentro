@@ -44,9 +44,9 @@ class PageController extends Controller {
 	 * @NoAdminRequired
 	 * @NoCSRFRequired
 	 */
-    public function storeOpml($content) {
+    public function storeOpml($data) {
         $app = new Application();
         $container = $app->getContainer();
-        return array("status" => $container->query('AuthorStorage')->writeContent($content));
+        return array("status" => $container->query('AuthorStorage')->writeContent($data));
 	}
 }

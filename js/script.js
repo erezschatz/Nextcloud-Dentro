@@ -57,7 +57,7 @@ const saveOutlineNow = () => {
     $.ajax({
         url: 'opml',
         method: 'POST',
-        data: { 'content': opOutlineToXml(appPrefs.authorName, appPrefs.authorEmail) }
+        data: { 'data': opOutlineToXml(appPrefs.authorName, appPrefs.authorEmail) }
     }).done(function() {
         opClearChanged();
 	});
