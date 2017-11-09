@@ -1,5 +1,4 @@
 .divOutlinerContainer {
-	margin-top: 35px;
 	margin-left: 15px;
 	margin-right: auto;
 	min-height: 550px;
@@ -71,6 +70,8 @@ input[type="file"] + label {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     width: 250px;
+    box-shadow: none;
+    background: none;
 }
 .dropdown-toggle {
     color: #777;
