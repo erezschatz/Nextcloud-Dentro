@@ -233,6 +233,15 @@ function ConcordOutline(container, options) {
                 style["min-height"] = prefs.outlineLineHeight + "px";
                 style["line-height"] = prefs.outlineLineHeight + "px";
             }
+	    
+	    /* move to prefs and such  - fix for NextCloud 13 */
+	    style["margin"] = "0";
+	    style["padding"] = "0";
+	    style["border"] = "none";
+	    style["border-radius"] = "0";
+	    style["width"] = "100%";
+	    style["background-color"] = "inherit !important";
+
             this.root.parent().find("style.prefsStyle").remove();
             let css = '<style type="text/css" class="prefsStyle">\n';
             let cssId = "";
@@ -245,7 +254,7 @@ function ConcordOutline(container, options) {
             }
             css += '}\n';
             css += cssId + ' .concord .concord-node .concord-wrapper .node-icon {';
-
+	    delete style["width"];
             for (let attribute in style) {
                 if (attribute != "font-family") {
                     css += attribute + ': ' + style[attribute] + ';';
@@ -313,7 +322,7 @@ function ConcordOutline(container, options) {
         root.appendTo(container);
         this.root = root;
 
-        const pasteBin = $('<div class="pasteBin" contenteditable="true" style="position: absolute; height: 1px; width:1px; outline:none; overflow:hidden;"></div>');
+        const pasteBin = $('<div class="pasteBin" contenteditable="true" style="display: none; position: absolute; height: 1px; width:1px; outline:none; overflow:hidden;"></div>');
         pasteBin.appendTo(container);
         this.pasteBin = pasteBin;
         this.afterInit();

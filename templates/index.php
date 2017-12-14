@@ -18,7 +18,7 @@ style('dentro', 'style');
 	</div>
 
 	<div id="app-content">
-		<div id="app-content-wrapper">
+		<div id="app-content-wrapper" style="display:block;">
 			<?php print_unescaped($this->inc('content/index')); ?>
 		</div>
 	</div>
