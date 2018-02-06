@@ -234,13 +234,13 @@ function ConcordOutline(container, options) {
                 style["line-height"] = prefs.outlineLineHeight + "px";
             }
 	    
-	    /* move to prefs and such  - fix for NextCloud 13 */
-	    style["margin"] = "0";
-	    style["padding"] = "0";
-	    style["border"] = "none";
-	    style["border-radius"] = "0";
-	    style["width"] = "100%";
-	    style["background-color"] = "inherit !important";
+	    /* fix for NextCloud 13 */
+	        style["margin"] = prefs.margin;
+	        style["padding"] = prefs.padding;
+	        style["border"] = prefs.border;
+	        style["border-radius"] = prefs["border-radius"];
+	        style["width"] = prefs.width;
+	        style["background-color"] = prefs["background-color"];
 
             this.root.parent().find("style.prefsStyle").remove();
             let css = '<style type="text/css" class="prefsStyle">\n';
