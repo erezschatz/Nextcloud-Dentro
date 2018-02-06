@@ -597,9 +597,6 @@ function ConcordEditor(root, concordInstance) {
             }
 
             node.addClass("selected");
-            /* if (text.text().length > 0) {
-                //root.data("currentChange", root.children().clone());
-            } */
             this.dragModeExit();
         }
         if (root.find(".concord-node.dirty").length>0) {
@@ -611,14 +608,6 @@ function ConcordEditor(root, concordInstance) {
         if (multiple === undefined) {
             multiple = false;
         }
-
-        /* let node = root.find(".concord-cursor");
-        if (node.length == 1) {
-            let text = node.children(".concord-wrapper:first").children(".concord-text:first");
-            if (text.length == 1) {
-                //text.blur();
-            }
-        } */
 
         if (!multiple) {
             root.find(".selected").removeClass("selected");
@@ -807,7 +796,7 @@ function ConcordEditor(root, concordInstance) {
 
         if (concordInstance.op.getRenderMode()) {
         // Render HTML if op.getRenderMode() returns true - 2/17/13 by KS
-            let allowedTags = ["b","strong","i","em","a","img","strike","del","p","u"];
+            let allowedTags = ["b","strong","i","em","a","img","strike","del","p","u","br"];
 
             for (let tagIndex in allowedTags) {
                 let tag = allowedTags[tagIndex];
@@ -822,6 +811,10 @@ function ConcordEditor(root, concordInstance) {
                             "&lt;" + tag + "((?!&gt;).*?)&gt;((?!&lt;/" +
                                     tag + "&gt;).+?)&lt;/" + tag + "&gt;","gi"),
                         "<"+tag+"$1"+">$2"+"<"+"/"+tag+">");
+                } else if (tag == "br") {
+                    h = h.replace(
+                        new REgExp("&lt; */?" + tag + " */?&lt;),
+                        "<" + br + ">";
                 } else {
                     h = h.replace(
                         new RegExp(
@@ -2914,27 +2907,6 @@ function Op(opmltext) {
                         concordInstance.op.underline();
                     }
                     break;
-                /* case 68:
-                    //CMD+D
-                    if (commandKey) {
-                        keyCaptured = preventDefaultandTrue(event);
-                        concordInstance.op.reorg(down);
-                    }
-                    break;
-                case 76:
-                    // CMD+L
-                    if (commandKey) {
-                        keyCaptured = preventDefaultandTrue(event);
-                        concordInstance.op.reorg(left);
-                    }
-                    break;
-                case 82:
-                    // CMD+R
-                    if (commandKey) {
-                        keyCaptured = preventDefaultandTrue(event);
-                        concordInstance.op.reorg(right);
-                    }
-                    break;*/
                 case 219:
                     // CMD+[
                     if (commandKey) {
