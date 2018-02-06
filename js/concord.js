@@ -813,10 +813,10 @@ function ConcordEditor(root, concordInstance) {
                         "<"+tag+"$1"+">$2"+"<"+"/"+tag+">");
                 } else if (tag == "br") {
                     h = h.replace(
-                        new RegExp("&lt; */?" + tag + " */?&gt;"),
+                        new RegExp("&lt;" + tag + "&gt;"),
                         "<" + tag + ">");
                 } else {
-                    h = h.replace(
+                    h = h.replace(４
                         new RegExp(
                             "&lt;" + tag + "&gt;((?!&lt;/" + tag + "&gt;).+?)&lt;/"+tag+"&gt;","gi"),
                             "<" + tag + ">$1" + "<" + "/" + tag + ">");
