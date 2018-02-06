@@ -813,7 +813,7 @@ function ConcordEditor(root, concordInstance) {
                         "<"+tag+"$1"+">$2"+"<"+"/"+tag+">");
                 } else if (tag == "br") {
                     h = h.replace(
-                        new REgExp("&lt; */?" + tag + " */?&lt;),
+                        new REgExp("&lt; */?" + tag + " */?&lt;"),
                         "<" + br + ">";
                 } else {
                     h = h.replace(
@@ -2322,8 +2322,7 @@ function ConcordOp(root, concordInstance, _cursor) {
 
         if (readonly === undefined) {
             readonly = false;
-        }
-
+４
         if (readonly) {
             return;
         }
@@ -2958,7 +2957,8 @@ function Op(opmltext) {
                                 event.originalEvent.location !== 0)) {
                             concordInstance.op.setTextMode(!concordInstance.op.inTextMode());
                         } else {
-                            concordInstance.op.insert("", concordInstance.op.subsExpanded() ? right : down);
+                            concordInstance.op.insert(
+                                "", concordInstance.op.subsExpanded() ? right : down);
                             concordInstance.op.setTextMode(true);
                             concordInstance.op.focusCursor();
                         }
@@ -2994,7 +2994,8 @@ function Op(opmltext) {
                                 concordInstance.op.setCursor(prev);
                             }
                         } else {
-                            concordInstance.op.go(up,1,event.shiftKey, concordInstance.op.inTextMode());
+                            concordInstance.op.go(
+                                up,1,event.shiftKey, concordInstance.op.inTextMode());
                         }
                         break;
                 case 39:
@@ -3029,7 +3030,8 @@ function Op(opmltext) {
                                 concordInstance.op.setCursor(next);
                             }
                         } else {
-                                concordInstance.op.go(down,1, event.shiftKey, concordInstance.op.inTextMode());
+                            concordInstance.op.go(
+                                down,1, event.shiftKey, concordInstance.op.inTextMode());
                             }
                         break;
                 case 46:
