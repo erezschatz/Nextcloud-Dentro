@@ -814,7 +814,7 @@ function ConcordEditor(root, concordInstance) {
                 } else if (tag == "br") {
                     h = h.replace(
                         new RegExp("&lt; */?" + tag + " */?&lt;"),
-                        "<" + tag４ + ">");
+                        "<" + tag + ">");
                 } else {
                     h = h.replace(
                         new RegExp(
