@@ -814,7 +814,7 @@ function ConcordEditor(root, concordInstance) {
                 } else if (tag == "br") {
                     h = h.replace(
                         new REgExp("&lt; */?" + tag + " */?&lt;"),
-                        "<" + br + ">");
+                        "<" + br + ">");４
                 } else {
                     h = h.replace(
                         new RegExp(
@@ -2322,7 +2322,7 @@ function ConcordOp(root, concordInstance, _cursor) {
 
         if (readonly === undefined) {
             readonly = false;
-４
+        }
         if (readonly) {
             return;
         }
