@@ -69,7 +69,6 @@ input[type="file"] + label {
     padding: 0;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    width: 100px;
     box-shadow: none;
     background: none;
 }
