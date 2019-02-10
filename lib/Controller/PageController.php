@@ -39,7 +39,6 @@ class PageController extends Controller {
         return array("opml" => $container->query('AuthorStorage')->getContent());
 	}
 	
-	
 	/**
 	 * @NoAdminRequired
 	 * @NoCSRFRequired
