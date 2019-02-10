@@ -3,7 +3,7 @@
 	margin-right: auto;
 	min-height: 550px;
 	overflow: auto;
-	padding: 6px;
+	padding: 12px;
 	background-color: white;
 }
 .divSubtext {
@@ -19,20 +19,6 @@
 }
 .dropdown-menu {
 	width: 250px;
-}
-input[type="file"] {
-	width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
-}
-input[type="file"] + label {
-	font-weight: normal;
-	padding-top: 12px;
-	padding-left: 20px;
-	outline: none !important;
 }
 .dropdown-menu > li > a {
 	cursor: pointer;
